@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<style>
+
+.verticalScroll {
+	color: #888;
+}
+
+.verticalScroll:hover {
+	font-size: 18px;
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
+	color: #333;
+}
+
+.horizontalScroll {
+	color: #888;
+}
+
+.horizontalScroll:hover {
+	color: #333;
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
+}
+
+.horizontalArrowLeft {
+	width: 0px;
+    height: 115px;
+    padding-right: 0;
+}
+
+.horizontalArrowLeft .horizontalScroll {
+    position: absolute;
+    left: 0;
+    top: 42%;
+}
+
+.horizontalArrowRight {
+	width: 0px;
+    height: 115px;
+    padding-left: 0;
+}
+
+.horizontalArrowRight .horizontalScroll {
+    position: absolute;
+    right: 0;
+    top: 42%;
+}
+
+.verticalScroll {
+	display: none;
+}
+
+/*i.fa.fa-chevron-up:hover {
+font-size: 18px;
+transition: 0.2s;
+	-webkit-transition: 0.2s;
+}
+
+i.fa.fa-chevron-down:hover {
+font-size: 18px;
+transition: 0.2s;
+	-webkit-transition: 0.2s;
+}*/
+
+.small {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 3px;
+    width: 105px;   /* 3:2 ratio - manual thumbnail to be created of this dimension in PS */
+	height: 70px;
+	margin: 10px 5px;
+	background: white;
+}
+
+.caption {
+bottom: -5px;position: relative;font-size: 11px;
+}
+
+.big {
+	margin: 0 auto;
+	height: 329px;
+}
+
+.small:hover {
+    box-shadow: 0 0 2px 1px rgba(23, 28, 27, 0.5);
+    transform: scale(1.1);
+	transition: 0.2s;
+	-webkit-transition: 0.2s;
+	transition-timing-function: cubic-bezier(.69,.32,.67,.89);
+	-webkit-transition-timing-function: cubic-bezier(.69,.32,.67,.89);
+}
+
+	.image-list {
+	overflow-x: scroll;
+	width: 97%;
+    margin: 0px auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+	}
+
+	
+.gal {
+	display: inline-block;
+}
+	
+.image-list::-webkit-scrollbar {
+display: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+	.horizontalScroll, .horizontalArrowLeft, .horizontalArrowRight {
+		display: none;
+	}
+
+	.verticalScroll {
+		display: block;
+	}
+
+	.image-list {
+	white-space: initial;
+	overflow-y: scroll;
+    height: 145px;
+	margin: 0 auto;
+	width: 50%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	}
+
+	.big {
+	width: 100%;
+	height: auto;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	}
+
+	.lightbox {
+    position: relative;
+	margin: 0 auto;
+	width: 100%;
+	}
+	
+	.image-list-90 {
+	width: 100%;
+	height: 225px;
+	}
+	
+	.small {
+    width: 90px; /* 3:2 ratio */
+	height: 60px;
+	}
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<div ng-app class="container" style="text-align: center;" ng-controller="ImgCtrl" ng-init="selectedImg.src = 'https://www.w3schools.com/css/img_lights.jpg'; captionImg = 'Caption for image 1';">
+
+        <div class="lightbox">
+        	<div>
+        		<p>
+					<img class="big" ng-src="{{selectedImg.src}}" class="img-responsive">
+				</p>
+				<p class="caption">
+					<span> {{captionImg}} </span>
+				</p>
+			</div>
+		</div>
+	
+	<!-- <input ng-model="query" placeholder="&#xF002; Search by tags or text" style="font-family:Arial, FontAwesome; padding: 5px;outline: none;border: 0px;border-bottom: 1px solid #555;"> -->
+		
+	<p class="verticalScroll"><i class="fa fa-chevron-up" aria-hidden="true" onclick="scrollUp()"></i></p>
+	
+    <div class="row">
+    	<div class="col-sm-1 horizontalArrowLeft">
+    		<i class="fa fa-chevron-left horizontalScroll" aria-hidden="true" onclick="scrollToLeft()"></i>
+    	</div>
+		<div  id="list" class="col-sm-10 image-list image-list-90"">
+			<p class="gal" ng-repeat="thumb in gallery | filter: query"" >
+				<img class="small" ng-src="{{thumb.images[0].small}}" ng-click="selectedImg.src = thumb.images[0].big; captionImg = thumb.images[0].caption; captioning(captionImg);">
+			</p>
+		</div>
+		<div class="col-sm-1 horizontalArrowRight">
+			<i class="fa fa-chevron-right horizontalScroll" aria-hidden="true" onclick="scrollToRight()"></i>
+		</div>
+    </div>
+	
+<!-- 	<p class="horizontalScroll">
+		<i class="fa fa-chevron-left" aria-hidden="true" onclick="scrollToLeft()"></i>
+		<i class="fa fa-chevron-right" aria-hidden="true" onclick="scrollToRight()"></i>
+	</p> -->
+
+	<p class="verticalScroll"><i class="fa fa-chevron-down" aria-hidden="true" onclick="scrollDown()"></i></p>
+	
+</div>
+
+<!--<a target="_blank" href="https://www.w3schools.com/css/img_lights.jpg">
+  <img src="https://www.w3schools.com/css/img_lights.jpg" alt="Forest" style="width:150px">
+</a>-->
+
+</body>
+</html>

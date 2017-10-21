@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+<script src="https://use.fontawesome.com/8c50bea88c.js"></script>
+<style>
+body {
+	background: rgb(220, 41, 41);
+}
+
+.center-block {
+	position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 260px;
+    height: 260px;
+    padding: 10px 0px 0px 17px;
+    /*background-color: rgba(212, 0, 0, 0.76);*/
+    border-radius: 5px;
+    color: #e6e6e6;
+	animation-timing-function: cubic-bezier(0.25,0.1,0.25,1);
+	animation: toRound 3s infinite;
+	}
+	
+.center-block__text {
+	font-size: 35px;
+    letter-spacing: 10px;
+	/*opacity: 0;*/
+	position: absolute;
+    bottom: 15px;
+    text-align: center;
+    left: 0;
+    right: 0;
+	color: #a70000;
+}
+
+	/*.center-block:hover {
+	animation-timing-function: cubic-bezier(0.25,0.1,0.25,1);
+	animation: toRound 5s infinite;
+	}*/
+	
+	/*.center-block:hover .center-block__text {
+	opacity: 1;
+	transition: opacity 1s;
+	}*/
+
+@keyframes toRound {
+	0% {border-radius: 25px;}
+	
+	20% {border-radius: 260px;    
+		background: #ea9222;
+		width: 205px;
+		height: 205px;
+		box-shadow: 5px 5px 5px #292929;
+		top: -235px;
+		}
+
+	100% {border-radius: 25px;}
+}
+
+    .center-block__cta {
+	text-align: center;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    right: 0;
+	}
+
+
+</style>
+</head>
+    <body> 
+		<a href="index.html"><div class="center-block">
+			<!--<span class="center-block__cta">Press above to go back to arijitpatra.in</span>-->
+		</div></a>
+		<p class="center-block__text">4<i class="fa fa-meh-o" aria-hidden="true"></i>4<br>
+				Oops! Invalid URL</p>
+    </body> 
+</html>
