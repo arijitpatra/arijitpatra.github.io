@@ -5,6 +5,28 @@
  
 <style>
 
+.btn--rounded {
+	border-radius: 5px;
+	border: 1px solid #333;
+	background: none;
+	color: #333;
+	padding: 5px;
+	width: 100px;
+	outline: none;
+}
+
+.btn--rounded:hover, .btn--rounded:focus {
+	background: #333;
+	color: #fff;
+	outline: none;
+}
+
+.btn--rounded:active:focus {
+	background: #555;
+	color: #fff;
+	outline: none;
+}
+
 .verticalScroll {
 	color: #888;
 }
@@ -96,7 +118,7 @@ bottom: -5px;position: relative;font-size: 11px;
 
 	.image-list {
 	overflow-x: scroll;
-	width: 97%;
+	width: 95%;
     margin: 0px auto;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -209,6 +231,17 @@ display: none;
 <!--<a target="_blank" href="https://www.w3schools.com/css/img_lights.jpg">
   <img src="https://www.w3schools.com/css/img_lights.jpg" alt="Forest" style="width:150px">
 </a>-->
+
+<div class="row">
+	<div class="col-sm-12 text-center">
+			<input ng-model="query" placeholder="&#xF002; Filter by tags or text" style="font-family:Arial, FontAwesome; padding: 5px;outline: none;border: 0px;border-bottom: 1px solid #555;">
+			<button class="btn btn--rounded">Wedding</button>
+			<button class="btn btn--rounded">Sports</button>
+			<button type="button" class="btn btn--rounded">People</button>
+			<button class="btn btn--rounded">Street</button>
+			<button class="btn btn--rounded">India</button>
+	</div>
+</div>
 
 </body>
 </html>
